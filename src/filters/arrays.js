@@ -422,6 +422,7 @@ let reverseArrayDeltaIndex = (delta, index, itemDelta) => {
   }
 
   let reverseIndex = +index;
+  let reverseIndexCopy = reverseIndex;
   for (let deltaIndex in delta) {
     let deltaItem = delta[deltaIndex];
     if (isArray(deltaItem)) {
@@ -444,7 +445,7 @@ let reverseArrayDeltaIndex = (delta, index, itemDelta) => {
         if (deleteIndex <= reverseIndex) {
           reverseIndex++;
         }
-      } else if (deltaItem.length === 1 && deltaIndex <= reverseIndex) {
+      } else if (deltaItem.length === 1 && deltaIndex <= reverseIndexCopy) {
         reverseIndex--;
       }
     }
